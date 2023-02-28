@@ -1,8 +1,18 @@
-import { Box, Card, Container, Grid, Theme, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  Container,
+  Divider,
+  Grid,
+  Theme,
+  Typography,
+} from "@mui/material";
 import { sign } from "crypto";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import PrimaryButton from "../../common/buttons/primary-button";
+import SecondaryButton from "../../common/buttons/secondary-button";
 import CustomizedInputField from "../../common/input-fields/custom-input-field";
 import PasswordField from "../../common/input-fields/custom-password-field";
 import SigninCardHeader from "./sign-up-header";
@@ -29,6 +39,7 @@ const SignUpForm: React.FC<Props> = ({}) => {
     console.log(values);
   };
 
+  const router = useRouter();
   const handleSignUp = () => {
     setSignUp(!signup);
   };
@@ -217,14 +228,16 @@ const SignUpForm: React.FC<Props> = ({}) => {
                   height: "48px",
                   borderRadius: "5px",
                   marginTop: "16px",
+                  mb: 2,
                 }}
                 variant="contained"
                 text={signup ? "Sign Up" : "Sign in"}
                 type="submit"
                 // loading={loading}
                 fullWidth
+                onClick={() => router.push("/dashboard")}
               />
-              <Box
+              {/* <Box
                 sx={{
                   textAlign: "center",
                 }}
@@ -233,20 +246,21 @@ const SignUpForm: React.FC<Props> = ({}) => {
                   sx={{
                     fontWeight: 700,
                     fontSize: "0.75rem",
-                    color: (theme: Theme) => theme.palette.primary.main,
+                    color: (theme: Theme) => theme.palette.secondary.main,
                     textAlign: "center",
                   }}
                   component="span"
                   color="primary"
                 >
-                  {signup ? "Already have an account?" : "Sign up now"}
+                  {signup ? "Already have an account?" : "Create an account"}
                 </Typography>
-                <PrimaryButton
+                <Divider orientation="vertical" />
+                <SecondaryButton
                   variant="text"
                   text={signup ? "Sign in" : "Sign up"}
                   onClick={handleSignUp}
                 />
-              </Box>
+              </Box> */}
             </Card>
           </Box>
         </form>

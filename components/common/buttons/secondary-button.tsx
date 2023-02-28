@@ -16,7 +16,6 @@ interface SecondaryButtonProps {
   iconLink?: any;
 }
 
-
 const SecondaryButton: React.FunctionComponent<SecondaryButtonProps> = ({
   text,
   onClick,
@@ -33,13 +32,14 @@ const SecondaryButton: React.FunctionComponent<SecondaryButtonProps> = ({
       onClick={onClick}
       variant={variant}
       type={type ? type : "submit"}
-      sx={{ 
-      boxShadow: "none",
-      height: "29px",
-      background: (theme:Theme) =>  theme.palette.primary.light,
-      "&:hover": {
-        background: (theme:Theme) =>  theme.palette.primary.light,
-      },}}
+      sx={{
+        boxShadow: "none",
+        height: "29px",
+        // background: (theme:Theme) =>  theme.palette.primary.light,
+        // "&:hover": {
+        //   background: (theme:Theme) =>  theme.palette.primary.light,
+        // },
+      }}
       loading={loading}
       disabled={loading || disabled}
     >
